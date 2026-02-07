@@ -1,0 +1,90 @@
+class Solution {
+public:
+    int romanToInt(string s) {
+        int num = 0;
+
+        for(int i = 1; i < s.length()+1; i++){
+
+            switch (s[i-1]){
+                case 'M':
+                    if (i-1 != 0){
+                        if (s[i-2] == 'C'){
+                            num += 800;
+                            continue;
+                        } else{
+                            num += 1000;
+                        }
+                    } else{
+                        num += 1000;
+                    }
+                    break;
+                case 'D':
+                    if (i-1 != 0){
+                        if (s[i-2] == 'C'){
+                            num += 300;
+                            continue;
+                        } else{
+                            num += 500;
+                        }
+                    } else{
+                        num += 500;
+                    }
+                    break;
+                case 'C':
+                    if (i-1 != 0){
+                        if (s[i-2] == 'X'){
+                            num += 80;
+                            continue;
+                        } else{
+                            num += 100;
+                        }
+                    } else{
+                        num += 100;
+                    }
+                    break;
+                case 'L':
+                    if (i-1 != 0){
+                        if (s[i-2] == 'X'){
+                            num += 30;
+                            continue;
+                        } else {
+                            num += 50;
+                        }
+                    } else{
+                        num += 50;
+                    }
+                    break;
+                case 'X':
+                    if (i-1 != 0){
+                        if (s[i-2] == 'I'){
+                            num += 8;
+                            continue;
+                        } else{
+                            num += 10;
+                        }
+                    } else{
+                        num += 10;
+                    }
+                    break;
+                case 'V':
+                    if (i-1 != 0){
+                        if (s[i-2] == 'I'){
+                            num += 3;
+                            continue;
+                        } else{
+                            num+=5;
+                        }
+                    } else{
+                        num += 5;
+                    }
+                    break;
+                case 'I':
+                    num += 1;
+                    break;
+                    
+
+            }
+        }
+        return num;
+    }
+};
